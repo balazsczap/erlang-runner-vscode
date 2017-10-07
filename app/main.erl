@@ -7,5 +7,10 @@ start() ->
 
 % MODIFY FROM HERE
 
-main() -> 
-    io:fwrite(other:echo("Hello world!")).
+main() ->
+try
+   io:fwrite(other:echo("Hello world!"))
+catch
+   _:_ ->
+      io:format("Backtrace ~p~n", [erlang:get_stacktrace()])
+end.
