@@ -2,11 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "run",
+            "taskName": "build",
             "type": "shell",
             "command": 
-                "erl -make; erl -run main -s erlang halt"
+                "erl -make"
             
+        },
+        {
+            "taskName":"run",
+            "type": "shell",
+            "command" : "erl -run main -s erlang halt",
+            "dependsOn" : "build"
         }
     ]
 }
